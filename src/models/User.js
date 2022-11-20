@@ -1,5 +1,3 @@
-const e = require("express");
-
 const UserModel = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
