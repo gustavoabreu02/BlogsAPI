@@ -2,8 +2,9 @@ const express = require('express');
 const { categoryController } = require('../controllers');
 const { tokenValidation } = require('../middlewares/validations');
 
-const route = express.Router();
+const routes = express.Router();
 
-route.post('/', tokenValidation, categoryController.newCategory);
+routes.post('/', tokenValidation, categoryController.newCategory);
+routes.get('/', tokenValidation, categoryController.getAllCategories);
 
-module.exports = route;
+module.exports = routes;
