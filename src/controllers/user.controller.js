@@ -27,7 +27,7 @@ const getAllUsers = async (_req, res) => {
     }
   };
 
-  const getUserById = async (req, res) => {
+const getUserById = async (req, res) => {
     const { id } = req.params;
   
     try {
@@ -41,8 +41,14 @@ const getAllUsers = async (_req, res) => {
     }
   };
 
+const deleteUser = async (req, res) => {
+    await userService.deleteUser(req.user);
+    res.status(204).send();
+  };
+
 module.exports = {
   newUser,
   getAllUsers,
   getUserById,
+  deleteUser,
 };
