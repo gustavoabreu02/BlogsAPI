@@ -49,6 +49,7 @@ const tokenValidation = async (req, res, next) => {
     const user = await userService.getUserByEmail(decoded.data);
 
     if (!user) return res.status(401).json({ message: 'User not found' });
+    req.user = user.dataValues.id;
 
     next();
   } catch (e) {
@@ -56,4 +57,16 @@ const tokenValidation = async (req, res, next) => {
   }
 };
 
-module.exports = { emailValidation, userValidation, tokenValidation };
+const postValidation = (req, res, next) => {
+  const { title, content, categoryIds } = req.body;
+
+  if (!title || !content || !categoryIds || categoryIds.length === 0) {
+    return res.status(400).json({
+      message: 'Some required fields are missing',
+    });
+  }
+
+  next();
+};
+
+module.exports = { emailValidation, userValidation, tokenValidation, postValidation };
