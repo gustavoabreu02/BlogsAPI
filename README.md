@@ -1,52 +1,78 @@
 # Projeto BlogsAPI
 
-Neste projeto, desenvolveremos uma API e um banco de dados para a produção de conteúdo para um blog. A aplicação será desenvolvida em Node.js, utilizando o pacote sequelize para fazer um CRUD de posts.
+Este projeto é uma API desenvolvida em Node.js com a finalidade de criar um sistema para gerenciamento de conteúdo de um blog. Utilizamos o pacote sequelize para implementar um CRUD de posts e um banco de dados MySQL para armazenamento de dados. 
 
-## Funcionalidades
+# Funcionalidades
 
-- Endpoints que estarão conectados ao banco de dados seguindo os princípios do REST;
-- Autenticação de usuário e login para a criação de posts;
-- Relação entre usuário e post;
-- Utilização de categorias para os posts, trabalhando a relação de posts para - categories e de categories para posts.
+A API possui os seguintes recursos e funcionalidades:
+
+- Endpoints RESTful para criação, atualização, consulta e exclusão de posts;
+- Autenticação de usuários e login para a criação de posts;
+- Relação entre usuários e posts;
+- Criação e associação de categorias a posts;
+- Listagem de posts por categoria.
 
 ## Stack utilizada
 
+A aplicação foi desenvolvida utilizando as seguintes tecnologias:
+
 **Back-end:**
 
-- nodejs
-- docker
-- dotenv
-- express
-- express-async-errors
-- joi
-- jsonwebtoken
-- morgan
-- mysql2
-- sequelize
-- shelljs
+- Node.js
+- Docker
+- Dotenv
+- Express
+- Express-async-errors
+- Joi
+- Jsonwebtoken
+- Morgan
+- MySQL2
+- Sequelize
+- Shelljs
 
-## Instalação
+## Como executar a aplicação
 
-Como Executar o Projeto
+Para executar a aplicação, siga os seguintes passos:
 
-1. Clone o repositório para sua máquina;
-2. Instale as dependências do projeto com o comando npm install;
-3. Configure o arquivo .env com as variáveis de ambiente necessárias;
-4. Execute o comando npm start para iniciar a aplicação.
+1. Instale o Node.js e o Docker em seu computador;
+2. Clone este repositório em sua máquina;
+3. Abra o terminal na pasta raiz do projeto e execute o comando `npm install` para instalar as dependências do projeto;
+4. Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente conforme o arquivo `.env.example`;
+5. Execute o comando `npm start` para iniciar a aplicação.
 
-```bash
-npm install
-cd blogsAPI
-npm start
-```
+Agora a aplicação estará disponível em `http://localhost:3000`. 
 
-## Contribuindo
+## Endpoints
 
-1. Faça um fork do repositório;
-2. Crie uma branch com a feature ou correção a ser implementada;
-3. Faça um commit das mudanças com mensagens claras e objetivas;
-4. Faça um push da branch para o seu fork;
-5. Abra um pull request para a branch principal do repositório.
+### `/login`
+
+- `POST /login`: realiza a autenticação do usuário com base em seu email e senha e retorna um token de autenticação.
+
+### `/user`
+
+- `POST /user`: cria um novo usuário na base de dados;
+- `GET /user/:id`: busca um usuário específico pelo ID;
+- `PUT /user/:id`: atualiza as informações de um usuário específico;
+- `DELETE /user/:id`: exclui um usuário específico.
+
+### `/categories`
+
+- `POST /categories`: cria uma nova categoria na base de dados;
+- `GET /categories/:id`: busca uma categoria específica pelo ID;
+- `PUT /categories/:id`: atualiza as informações de uma categoria específica;
+- `DELETE /categories/:id`: exclui uma categoria específica.
+
+### `/post`
+
+- `POST /post`: cria um novo post na base de dados;
+- `GET /post/:id`: busca um post específico pelo ID;
+- `GET /post?category=:categoryId`: busca os posts de uma categoria específica;
+- `PUT /post/:id`: atualiza as informações de um post específico;
+- `DELETE /post/:id`: exclui um post específico.
+
+## Contribuições
+
+Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir uma issue ou uma pull request.
 
 ## Autores
 
