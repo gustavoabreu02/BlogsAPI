@@ -1,4 +1,4 @@
-# Projeto BlogsAPI
+# Projeto BlogsAPI 
 
 Este projeto é uma API desenvolvida em Node.js com a finalidade de criar um sistema para gerenciamento de conteúdo de um blog. Utilizamos o pacote sequelize para implementar um CRUD de posts e um banco de dados MySQL para armazenamento de dados. 
 
